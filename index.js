@@ -1,20 +1,22 @@
+
+
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import contactRoutes from "../src/routes/contact.js"; // default import
+import contactRoutes from "./routes/contact.js"; // clean relative path
 
-dotenv.config(); // load env variables
+dotenv.config();
 
-const app = express(); // create app first
+const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-// attach routes
+// Routes
 app.use("/api/contact", contactRoutes);
 
 app.get("/", (req, res) => {
-  res.send("Portfolio API running");
+  res.send("Portfolio API running 🚀");
 });
 
 const PORT = process.env.PORT || 5000;

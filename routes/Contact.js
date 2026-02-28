@@ -1,14 +1,16 @@
+
+
 import express from "express";
 import nodemailer from "nodemailer";
 
 const router = express.Router();
 
-// POST route
+// POST /api/contact
 router.post("/", async (req, res) => {
   const { name, email, message } = req.body;
 
   try {
-    // 2️⃣ Send email
+    // Configure email transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -17,6 +19,7 @@ router.post("/", async (req, res) => {
       },
     });
 
+    // Email details
     const mailOptions = {
       from: email,
       to: process.env.EMAIL_USER, // your email
@@ -29,7 +32,6 @@ router.post("/", async (req, res) => {
     res.status(201).json({
       success: true,
       message: "Message sent successfully ✅",
-      data: newMessage,
     });
   } catch (error) {
     console.error(error);
