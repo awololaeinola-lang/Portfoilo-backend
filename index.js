@@ -3,7 +3,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import contactRoutes from "./routes/contact.js"; // clean relative path
+import contactRoutes from "./routes/Contact.js"; // clean relative path
 
 dotenv.config();
 
