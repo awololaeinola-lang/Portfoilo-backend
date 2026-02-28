@@ -1,5 +1,4 @@
 import express from "express";
-import Message from "../models/Message.js";
 import nodemailer from "nodemailer";
 
 const router = express.Router();
@@ -9,9 +8,6 @@ router.post("/", async (req, res) => {
   const { name, email, message } = req.body;
 
   try {
-    // 1️⃣ Save message to DB
-    const newMessage = await Message.create(req.body);
-
     // 2️⃣ Send email
     const transporter = nodemailer.createTransport({
       service: "gmail",
