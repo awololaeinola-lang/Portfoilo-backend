@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import contactRoutes from "./src/routes/contact.js"; // default import
+import contactRoutes from "../src/routes/contact.js"; // default import
 
 dotenv.config(); // load env variables
 
